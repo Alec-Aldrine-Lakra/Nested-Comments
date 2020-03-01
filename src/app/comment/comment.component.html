@@ -1,0 +1,15 @@
+Id: {{comment._id}}<br>
+Parent: {{comment.parent}}<br>
+Comment: {{comment.com}}<br>
+<button (click)="reply()">Reply</button>
+
+<div *ngIf="showEdit">
+    <textarea maxlength="100" [(ngModel)]="inputComment"></textarea><br>
+    <button (click)="addSubComment()">Add Comment</button><br>
+</div>
+
+<div style="position: relative; left: 20px; top: 10px">
+    <app-comment *ngFor = "let comment of comment.sub" [comment]="comment">
+    </app-comment>
+</div>
+<br>
